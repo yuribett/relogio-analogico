@@ -51,10 +51,10 @@ class RelogioView {
         let minuto = dtAtual.getMinutes();
         let segundo = dtAtual.getSeconds();
         
-        hora = hora % 12;
-        hora = (hora * Math.PI / 6) +
-            (minuto * Math.PI / (6 * 60)) +
-            (segundo * Math.PI / (360 * 60));
+        hora = hora % 24;
+        hora = (hora * Math.PI / 12) +
+            (minuto * Math.PI / (12 * 60)) +
+            (segundo * Math.PI / (720 * 60));
         PonteiroFactory.criarPonteiro(this._relogio.contexto, hora, this._relogio.radius * 0.5, this._relogio.radius * 0.07);
         
         minuto = (minuto * Math.PI / 30) + (segundo * Math.PI / (30 * 60));
